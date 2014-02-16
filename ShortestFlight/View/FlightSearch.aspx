@@ -6,53 +6,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <style type="text/css">
-        .flat-table {
-            margin-bottom: 10px;
-            border-collapse: collapse;
-            font-family: 'Lato', Calibri, Arial, sans-serif;
-            border: none;
-            border-radius: 3px;
-            -webkit-border-radius: 3px;
-            -moz-border-radius: 3px;
-        }
-
-            .flat-table th, .flat-table td {
-            }
-
-            .flat-table th {
-                font-weight: normal;
-                -webkit-font-smoothing: antialiased;
-                padding: 1em;
-                color: rgba(0,0,0,0.45);
-                text-shadow: 0 0 1px rgba(0,0,0,0.1);
-                font-size: 1.5em;
-            }
-
-            .flat-table td {
-                width: 100px;
-                text-shadow: 0 0 1px rgba(255,255,255,0.1);
-                font-size: 1em;
-            }
-
-            .flat-table tr {
-                color: grey;
-                -webkit-transition: background 0.3s, box-shadow 0.3s;
-                -moz-transition: background 0.3s, box-shadow 0.3s;
-                transition: background 0.3s, box-shadow 0.3s;
-            }
-
-        .flat-table-1 {
-        }
-
-            .flat-table-1 tr:hover {
-                background: rgba(0,0,0,0.19);
-            }
-    </style>
+      <link rel="stylesheet" type="text/css" href="~/Content/Site.css"/>
+    <title>ShortestFlight</title>
+  
 </head>
 <body>
+    <div class="picture">
 
+
+          <asp:Image ID="Image1" runat="server" ImageUrl="http://i99.photobucket.com/albums/l298/daniel_pg/plane.png?t=1392578744" /> 
+    </div>
 
     <form id="searchForm" runat="server">
 
@@ -99,7 +62,7 @@
         </div>
 
         <div>
-            <asp:Button ID="ButtonSearch" runat="server" BackColor="#339933"
+            <asp:Button ID="ButtonSearch" runat="server" BackColor="#222123" ForeColor="White" Font-Bold="true"
                 BorderColor="White" BorderStyle="Groove" Text="SEARCH FOR FLIGHTS"
                 Width="170px" OnClick="ButtonSearch_Click" Height="33px" />
         </div>
