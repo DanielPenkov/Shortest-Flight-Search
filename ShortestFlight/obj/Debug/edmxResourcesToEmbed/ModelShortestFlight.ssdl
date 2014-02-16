@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ShortestFlightModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'db0812e1b7e63c43e6971ca2d40101e828.dbo.airlines' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="airlines">
+    <Key>
+      <PropertyRef Name="airline_ID" />
+    </Key>
+    <Property Name="airline_ID" Type="int" Nullable="false" />
+    <Property Name="airline_name" Type="varchar" MaxLength="100" />
+    <Property Name="ICAO" Type="varchar" MaxLength="50" />
+    <Property Name="country" Type="varchar" MaxLength="50" />
+    <Property Name="active" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="airports">
+    <Key>
+      <PropertyRef Name="airport_ID" />
+    </Key>
+    <Property Name="airport_ID" Type="int" Nullable="false" />
+    <Property Name="airport" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="country" Type="varchar" MaxLength="50" />
+    <Property Name="airport_code" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="routes">
+    <Key>
+      <PropertyRef Name="route_ID" />
+    </Key>
+    <Property Name="route_ID" Type="int" Nullable="false" />
+    <Property Name="distance" Type="int" />
+    <Property Name="from_OID" Type="int" />
+    <Property Name="to_OID" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <Association Name="from_OID_fk">
+    <End Role="airports" Type="Self.airports" Multiplicity="0..1" />
+    <End Role="routes" Type="Self.routes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="airports">
+        <PropertyRef Name="airport_ID" />
+      </Principal>
+      <Dependent Role="routes">
+        <PropertyRef Name="from_OID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ShortestFlightModelStoreContainer">
+    <EntitySet Name="airports" EntityType="Self.airports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="routes" EntityType="Self.routes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="airlines" EntityType="Self.airlines" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+[airlines].[airline_ID] AS [airline_ID], 
+[airlines].[airline_name] AS [airline_name], 
+[airlines].[ICAO] AS [ICAO], 
+[airlines].[country] AS [country], 
+[airlines].[active] AS [active]
+FROM [dbo].[airlines] AS [airlines]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="from_OID_fk" Association="Self.from_OID_fk">
+      <End Role="airports" EntitySet="airports" />
+      <End Role="routes" EntitySet="routes" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

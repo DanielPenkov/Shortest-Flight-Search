@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db0812e1b7e63c43e6971ca2d40101e828ModelStoreContainer" CdmEntityContainer="db0812e1b7e63c43e6971ca2d40101e828Entities">
+    <EntitySetMapping Name="airports">
+      <EntityTypeMapping TypeName="db0812e1b7e63c43e6971ca2d40101e828Model.airport">
+        <MappingFragment StoreEntitySet="airports">
+          <ScalarProperty Name="airport_ID" ColumnName="airport_ID" />
+          <ScalarProperty Name="airport1" ColumnName="airport" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="airport_code" ColumnName="airport_code" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="routes">
+      <EntityTypeMapping TypeName="db0812e1b7e63c43e6971ca2d40101e828Model.route">
+        <MappingFragment StoreEntitySet="routes">
+          <ScalarProperty Name="route_ID" ColumnName="route_ID" />
+          <ScalarProperty Name="distance" ColumnName="distance" />
+          <ScalarProperty Name="from_OID" ColumnName="from_OID" />
+          <ScalarProperty Name="to_OID" ColumnName="to_OID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="airlines">
+      <EntityTypeMapping TypeName="db0812e1b7e63c43e6971ca2d40101e828Model.airline">
+        <MappingFragment StoreEntitySet="airlines">
+          <ScalarProperty Name="airline_ID" ColumnName="airline_ID" />
+          <ScalarProperty Name="airline_name" ColumnName="airline_name" />
+          <ScalarProperty Name="ICAO" ColumnName="ICAO" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
