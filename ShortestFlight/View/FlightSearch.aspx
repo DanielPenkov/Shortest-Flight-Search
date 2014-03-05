@@ -12,8 +12,6 @@
 </head>
 <body>
     <div class="picture">
-
-
           <asp:Image ID="Image1" runat="server" ImageUrl="http://i99.photobucket.com/albums/l298/daniel_pg/plane.png?t=1392578744" /> 
     </div>
 
@@ -79,7 +77,7 @@
 
                             <td>
 
-                                <%#Eval("fromAirport")  %>
+                                <%#Eval("fromAirport")  %> - 
                                 <%#Eval ("toAirport") %>
                             </td>
 
